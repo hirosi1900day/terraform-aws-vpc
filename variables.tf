@@ -5,7 +5,7 @@ variable "system" {
 
 variable "env" {
   type = string
-  description = "環境名"
+  description = "環境名です"
 }
 
 variable "cidr_vpc" {
