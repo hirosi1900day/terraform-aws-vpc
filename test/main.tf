@@ -2,8 +2,8 @@
 terraform {
   backend "local" {}
 
-  required_version = ">= 1.7"
-  
+  required_version = ">= 1.6"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -18,8 +18,7 @@ provider "aws" {
 
 module "vpc" {
   source  = "../"
-
-  version = "0.0.2"
+  
   system   = "test"
   env      = "prd"
   cidr_vpc = "10.1.0.0/16"
