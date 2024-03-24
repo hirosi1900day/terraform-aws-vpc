@@ -1,12 +1,4 @@
-mock_provider "aws" {
-
-  override_data {
-    target = data.aws_availability_zones.available
-    values = {
-      names = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
-    }
-  }
-}
+mock_provider "aws" {}
 
 variables {
  system   = "test"
@@ -29,13 +21,13 @@ variables {
   ]
 }
 
-# provider "aws" {
-#   region = "us-east-1"
-# }
-
-
 run "verify" {
-  # Load and count the objects created in the "execute" run block.
+  override_data {
+    target = data.aws_availability_zones.available
+    values = {
+      names = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
+    }
+  }
 
   module {
     source = "../"
