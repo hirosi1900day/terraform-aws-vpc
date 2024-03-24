@@ -1,7 +1,7 @@
 mock_provider "aws" {}
 
 variables {
- system   = "test"
+  system   = "test"
   env      = "prd"
   cidr_vpc = "10.1.0.0/16"
   cidr_public = [
@@ -21,20 +21,20 @@ variables {
   ]
 }
 
-run "verify" {
-  override_data {
-    target = data.aws_availability_zones.available
-    values = {
-      names = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
-    }
+override_data {
+  target = data.aws_availability_zones.available
+  values = {
+    names = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
   }
+}
 
+run "verify" {
   module {
     source = "../"
   }
 
   assert {
-    condition = aws_vpc.vpc.tags.Name == "test-prd-vpc"
+    condition     = aws_vpc.vpc.tags.Name == "test-prd-vpc"
     error_message = "created the wrong number of s3 objects"
   }
 }
