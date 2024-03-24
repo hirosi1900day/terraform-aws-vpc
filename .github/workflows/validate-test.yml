@@ -1,4 +1,4 @@
-name: test
+name: validate test
 
 on:
   push:
@@ -25,7 +25,8 @@ jobs:
       - name: Show Terraform Version
         run: terraform --version
 
-      - name: Testing module
+      - name: Validate module
         run: |
           terraform init
-          terraform test
+          terraform validate
+        working-directory: test
