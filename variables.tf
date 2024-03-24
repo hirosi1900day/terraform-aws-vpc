@@ -1,29 +1,29 @@
 variable "system" {
-  type = string
+  type        = string
   description = "システム名"
 }
 
 variable "env" {
-  type = string
+  type        = string
   description = "環境名です"
 }
 
 variable "cidr_vpc" {
-  type = string
+  type        = string
   description = "vpcのCIDR"
 }
 
 variable "cidr_public" {
-  type = list(string)
+  type        = list(string)
   description = "public subnetのCIDR"
 }
 
 variable "cidr_private" {
-  type = list(string)
+  type        = list(string)
   description = "private subnetのCIDR"
 }
 
 variable "cidr_secure" {
-  type = list(string)
+  type        = list(string)
   description = "secure subnetのCIDR"
 }
