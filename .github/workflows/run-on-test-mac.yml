@@ -1,0 +1,14 @@
+name: run-on-test-mac
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+
+jobs:
+  test_mac:
+    uses: ./.github/workflows/run-on-test-base.yml
+    with:
+      test: 'false'

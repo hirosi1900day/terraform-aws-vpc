@@ -1,0 +1,19 @@
+name: run-on-test-base
+
+on:
+  workflow_call:
+    inputs:
+      test:
+        required: true
+        type: string
+
+jobs:
+  echo_os_info:
+    runs-on: ${{ inputs.test == 'true' && 'ubuntu-latest' || 'macos-latest' }}
+    timeout-minutes: 5
+
+    steps:
+      - name: echo
+        run: |
+          echo "OS Information:"
+          uname -a
