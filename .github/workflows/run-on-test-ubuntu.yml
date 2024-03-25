@@ -1,0 +1,14 @@
+name: run-on-test-ubuntu
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+
+jobs:
+  test_ubuntu:
+    uses: ./.github/workflows/run-on-test-base.yml
+    with:
+      test: 'true'
